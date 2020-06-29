@@ -21,10 +21,9 @@ const Radio = (props: RadioProps) => (
         <h2>{props.label}</h2>
         {
             props.options.map(op => (
-                <label className="sbs radio">
+                <label className="sbs radio" key={op.value}>
                     <input 
                         type="radio" 
-                        key={op.value} 
                         value={op.value} 
                         checked={props.value === op.value} 
                         name={props.name}
@@ -32,7 +31,7 @@ const Radio = (props: RadioProps) => (
                     {op.label}
                 </label>
             ))
-        }
+        }   
     </>
 )
 

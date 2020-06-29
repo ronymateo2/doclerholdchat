@@ -19,7 +19,7 @@ const onChangeHandler = (props: SelectProps): ((event: React.ChangeEvent<HTMLSel
 
 const options = (props: SelectProps): React.ReactNode => {
     return props.options.map(op => (
-        <option selected={props.value === op.value} key={op.value} value={op.value}>{op.label}</option>
+        <option key={op.value} value={op.value}>{op.label}</option>
     ))
 }
 
