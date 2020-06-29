@@ -1,16 +1,26 @@
-import { UpdateSettingRequest, UserSettingResponse } from "../model/update-setting-request";
 import { LocalStorageRepository } from "./local-storage-repository";
+import { defaultSetting, Setting } from "../model/setting";
 
-export const settingService = (repository: LocalStorageRepository) => {
+export const settingServiceImp = (repository: LocalStorageRepository): SettingService => {
     return ({
-        async update(request: UpdateSettingRequest): Promise<void> {
+        async update(request: Setting): Promise<void> {
             return repository.setItem('user-settings', JSON.stringify(request))
         },
 
-        async get(): Promise<UserSettingResponse | undefined> {
+        async get(userId: string): Promise<Setting> {
             const value = repository.getItem('user-settings')
-            if (value) return JSON.parse(value) as UserSettingResponse
-            return;
+            if (value) return JSON.parse(value) as Setting
+            return { ...defaultSetting }
+        },
+
+        async getDefault(): Promise<Setting> {
+            return { ...defaultSetting }
         }
     });
+}
+
+export interface SettingService {
+    update(request: Setting): Promise<void>
+    get(userId: string): Promise<Setting>
+    getDefault(): Promise<Setting>
 }

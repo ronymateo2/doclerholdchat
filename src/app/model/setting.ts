@@ -2,6 +2,7 @@ import { ClockDisplay } from "./clock-display";
 import { InterfaceType } from "./interface-type";
 
 export interface Setting {
+    userName: string,
     inferfaceType: string | InterfaceType;
     clockDisplay: string | ClockDisplay;
     ctrlEnter: string | 'on' | 'off';
@@ -9,6 +10,7 @@ export interface Setting {
 }
 
 export const defaultSetting: Setting = {
+    userName: 'default user name',
     clockDisplay: ClockDisplay.TwentyFour,
     inferfaceType: InterfaceType.Ligth,
     ctrlEnter: 'on',
