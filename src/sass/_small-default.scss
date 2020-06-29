@@ -46,7 +46,7 @@ nav {
     transition: background 0.75s ease, color 0.75s ease;
   }
 
-  ul li.active a {
+  ul li a.active {
     background-color: darken($secondaryColor, 10%);
   }
 

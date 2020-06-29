@@ -5,8 +5,6 @@ import Select from '../component/Select'
 import { languageList } from '../model/language'
 import { currentUser } from '../model/user'
 
-
-
 export default function Settings() {
     const interfaceTypeOptions = [{ value: 'ligth', label: 'Ligth' }, { value: 'dark', label: 'Dark' }]
     const clockDisplayOptions = [{ value: '12', label: '12 Hours' }, { value: '24', label: '24 Hours' }]
