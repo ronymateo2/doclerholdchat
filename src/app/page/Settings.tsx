@@ -12,8 +12,8 @@ export default function Settings() {
     const messagesOptions = [{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]
     const languageOptions = languageList.map(l => ({ value: l.code, label: l.name }))
 
-    const [interfaceType, setInterfaceTye] = useState(defaultSetting.inferfaceType.toString())
-    const [clockDisplay, setClockDisplay] = useState(defaultSetting.clockDisplay.toString())
+    const [interfaceType, setInterfaceTye] = useState(defaultSetting.inferfaceType)
+    const [clockDisplay, setClockDisplay] = useState(defaultSetting.clockDisplay)
     const [sendMessage, setSendMessage] = useState(defaultSetting.ctrlEnter)
     const [language, setLanguage] = useState(defaultSetting.language)
 

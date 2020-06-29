@@ -20,7 +20,7 @@ export interface AppDateTime {
 }
 
 
-export const formatDay = (dt: AppDateTime, clockDisplay: ClockDisplay): string => {
+export const formatDay = (dt: AppDateTime, clockDisplay: string | ClockDisplay): string => {
     if (clockDisplay == ClockDisplay.TwentyFour) {
         return `${dt.hours}:${dt.minutes}`
     }
