@@ -9,7 +9,7 @@ export interface ChatLeftMessageProps {
 const ChatLeftMessage = ({ userName, date, content }: ChatLeftMessageProps) => {
     return (<div className='left'>
         <div className="user">
-            <p>{userName},{date}</p>
+            <p>{userName}, {date}</p>
         </div>
         <div className="content">
             <span> {content}</span>
