@@ -30,7 +30,7 @@ header {
   }
 }
 
-nav{
+nav {
   background-color: $secondaryColor;
   ul li {
     float: left;
@@ -56,9 +56,44 @@ nav{
   }
 }
 
-main{
+main {
   padding: 1rem $gutter;
 
+  /* Chat */
+  .chat {
+    .messages {
+      display: flex;
+      flex-direction: column;
+      .user {
+        p {
+          color: darken($secondaryColor, 30%);
+          padding: 0.1rem 0;
+          font-size: $secondaryFontSize;
+        }
+      }
+      .left {
+        padding: 0.2rem;
+        align-self: flex-start;
+        .content {
+          padding: 0.5rem;
+          border: 1px solid darken($secondaryColor, 20%);
+          border-bottom-left-radius: 7px;
+          font-size: $defaultFont;
+        }
+      }
+      .right {
+        padding: 0.2rem;
+        align-self: flex-end;
+        .content {
+          background-color: $secondaryColor;
+          padding: 0.5rem;
+          border: 1px solid darken($secondaryColor, 20%);
+          border-bottom-right-radius: 7px;
+          font-size: $defaultFont;
+        }
+      }
+    }
+  }
 }
 
 footer {
