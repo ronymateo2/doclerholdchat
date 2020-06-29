@@ -38,7 +38,7 @@ export default function Chat() {
                 </div>
             </section>
             <form id="chat">
-                <input type="text"></input>
+                <input placeholder="Enter Message..." type="text"></input>
                 <button className="button">
                     <i className="fas fa-paper-plane fa-2x"></i>
                 </button>

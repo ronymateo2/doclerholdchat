@@ -61,6 +61,7 @@ main {
 
   /* Chat */
   .chat {
+    margin: 1rem $gutter;
     .messages {
       display: flex;
       flex-direction: column;
@@ -92,6 +93,88 @@ main {
           font-size: $defaultFont;
         }
       }
+    }
+
+    form#chat {
+      input {
+        color: $fontColor;
+        padding: 0.75rem 1em;
+        margin-top: 0.1rem;
+        border: none;
+        border-radius: 5px;
+        background-color: scale-color($secondaryColor, $lightness: 50%);
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        width: calc(100% - 44px);
+      }
+      input::placeholder{
+        font-size: $captionFontSize;
+        
+      }
+      input:focus {
+        outline: none;
+        box-shadow: 0 0 10px #000000;
+      }
+      .button {
+        cursor: pointer;
+        border: none;
+        background-color: transparent;
+        height: 40px;
+        width: 40px;
+        margin: auto;
+      }
+    }
+  }
+
+  form#settings{
+    margin: 1rem $gutter;
+    // max-width: 25rem;
+    label.top{
+      font-size: $defaultFont;
+      display: block;
+      padding: .75em 0;
+      input, select{
+        width: 100%;
+        font-size: $defaultFont;
+        color: $fontColor;
+        padding: .75rem 1em;
+        margin-top: 0.75rem;
+        border: none;
+        border-radius: 5px;
+        background-color: scale-color($secondaryColor, $lightness: 50%);
+        -webkit-appearance: none; 
+				-moz-appearance: none;
+      }
+      input:focus {box-shadow: 1px 1px 4px rgba(0,0,0,0.5)  inset;}
+			input:required {border: 1px solid red;}
+      input:required:valid {border-color: $primaryColor;}
+    }
+
+    h2{
+      font-size: $defaultFont;
+      display: block;
+      padding: .75em 0;
+      font-weight: $normalWeight;
+    }
+
+    label.sbs.radio{
+      display: flex;
+      align-items: center;
+      font-size: $secondaryFontSize;
+      padding: .75em 0;
+    }
+  
+
+    input.submitBtn {
+      -webkit-appearance: none; /*remove the Safari mobile default styling*/
+      -moz-appearance: none; /*remove the Firefox mobile default styling*/
+      border: none;
+      background-color: $primaryColor;
+      color:$secondaryColor;
+      font-weight: $normalWeight;
+      border-radius: 1em;
+      padding: 0.5rem .75rem;
+      width: 100%;
     }
   }
 }
