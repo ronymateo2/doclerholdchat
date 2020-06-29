@@ -1,18 +1,36 @@
+import { User } from "./user";
+import { ClockDisplay } from "./clock-display";
+
 export interface ChatMessage {
-    user: string
+    id?: number //TODO
+    userName: string
     content: string
     // it should formatted by the server but for this exercise we format this value
-    createdAt: {
-        year: number,
-        month: number,
-        day: number,
-        hour: number,
-        min: number
-        second: number
-    }
+    createdAt: AppDateTime
 }
 
 
-export const formatDay = (m: ChatMessage) : string=> {
-    return '';
+export interface AppDateTime {
+    year?: number,
+    monthIndex?: number,
+    day?: number,
+    hours: number,
+    minutes: number,
+    seconds?: number
+}
+
+
+export const formatDay = (dt: AppDateTime, clockDisplay: ClockDisplay): string => {
+    if (clockDisplay == ClockDisplay.TwentyFour) {
+        return `${dt.hours}:${dt.minutes}`
+    }
+    else {
+        const suffix = (dt.hours >= 12) ? 'pm' : 'am';
+        const hours = (dt.hours > 12) ? dt.hours - 12 : dt.hours
+        return `${hours === 0 ? 12 : hours}:${dt.minutes} ${suffix}`
+    }
+}
+
+export const isMyMessage = (user: User, m: ChatMessage): boolean => {
+    return user.userName == m.userName
 }

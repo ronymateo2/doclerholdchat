@@ -3,7 +3,7 @@ import { LocalStorageRepository } from "./local-storage-repository";
 
 export const settingService = (repository: LocalStorageRepository) => {
     return ({
-        async save(request: UpdateSettingRequest): Promise<void> {
+        async update(request: UpdateSettingRequest): Promise<void> {
             return repository.setItem('user-settings', JSON.stringify(request))
         },
 
