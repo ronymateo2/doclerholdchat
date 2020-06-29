@@ -1,18 +1,42 @@
 html {
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/*  apply a natural box layout model to all elements  */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $defaultFont;
+  font-size: $defaultFontSize;
+  font-weight: $normalWeight;
+}
+
+header {
+  background-color: $primaryColor;
+  color: $secondaryColor;
+  padding: 1rem $gutter;
+  h1 {
+    font-size: $headerFontSize;
+    font-weight: $normalWeight;
   }
-  
-  /*  apply a natural box layout model to all elements  */
-  * {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: $defaultFont;
+  h2 {
     font-size: $defaultFontSize;
     font-weight: $normalWeight;
   }
-  
+}
+
+footer {
+  width: 100%;
+  background-color: $primaryColor;
+  p {
+    text-align: center;
+    color: $secondaryColor;
+    padding: 0.75rem 0;
+    font-size: $captionFontSize;
+  }
+}
