@@ -1,4 +1,4 @@
-export enum InterfaceType{
-    Ligth,
-    Dark
+export enum InterfaceType {
+    Ligth = "ligth",
+    Dark = "dark"
 }

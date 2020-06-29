@@ -3,7 +3,7 @@ import React from 'react'
 interface RadioProps {
     name: string
     label: string
-    value?: string
+    value?: string | boolean
     options: { value: string, label: string }[]
     onChange?: (value: string) => void
 }

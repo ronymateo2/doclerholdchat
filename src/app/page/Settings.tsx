@@ -4,6 +4,7 @@ import Radio from '../component/Radio'
 import Select from '../component/Select'
 import { languageList } from '../model/language'
 import { currentUser } from '../model/user'
+import { defaultSetting } from '../model/setting'
 
 export default function Settings() {
     const interfaceTypeOptions = [{ value: 'ligth', label: 'Ligth' }, { value: 'dark', label: 'Dark' }]
@@ -11,15 +12,20 @@ export default function Settings() {
     const messagesOptions = [{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]
     const languageOptions = languageList.map(l => ({ value: l.code, label: l.name }))
 
-    const [interfaceType, setInterfaceTye] = useState('')
-    const [clockDisplay, setClockDisplay] = useState('')
-    const [sendMessage, setSendMessage] = useState('')
-    const [language, setLanguage] = useState('')
+    const [interfaceType, setInterfaceTye] = useState(defaultSetting.inferfaceType.toString())
+    const [clockDisplay, setClockDisplay] = useState(defaultSetting.clockDisplay.toString())
+    const [sendMessage, setSendMessage] = useState(defaultSetting.ctrlEnter)
+    const [language, setLanguage] = useState(defaultSetting.language)
 
     function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+
+        setInterfaceTye(defaultSetting.inferfaceType)
+        setClockDisplay(defaultSetting.clockDisplay)
+        setSendMessage(defaultSetting.ctrlEnter)
+        setLanguage(defaultSetting.language)
     }
-    
+
     return (
         <form id="settings" onSubmit={handleSubmit} >
             <Input label="User Name" value={currentUser.userName} readOnly={true}></Input>

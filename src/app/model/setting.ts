@@ -2,15 +2,15 @@ import { ClockDisplay } from "./clock-display";
 import { InterfaceType } from "./interface-type";
 
 export interface Setting {
-    inferfaceType: InterfaceType | undefined;
-    clockDisplay: ClockDisplay | undefined;
-    ctrlEnter: boolean;
+    inferfaceType: InterfaceType;
+    clockDisplay: ClockDisplay;
+    ctrlEnter: string | 'on' | 'off';
     language: string;
 }
 
 export const defaultSetting: Setting = {
-    clockDisplay: ClockDisplay.Twelve,
+    clockDisplay: ClockDisplay.TwentyFour,
     inferfaceType: InterfaceType.Ligth,
-    ctrlEnter: false,
+    ctrlEnter: 'on',
     language: 'en'
 }
