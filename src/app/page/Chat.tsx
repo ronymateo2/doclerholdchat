@@ -1,12 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { ChatMessage, formatDay, isMyMessage } from '../model/chat-message'
-import { defaultSetting, Setting } from '../model/setting'
-import { currentUser, User } from '../model/user';
+import { Setting } from '../model/setting'
+import { User } from '../model/user';
 import ChatRigthMessage from '../component/ChatRigthMessage';
 import ChatLeftMessage from '../component/ChatLeftMessage';
 import { ServiceContext } from '../context/ServiceContext';
 
-const settings = defaultSetting;
 
 export default function Chat() {
     const context = useContext(ServiceContext)
@@ -45,17 +44,16 @@ export default function Chat() {
             setIsLoading(true);
             try {
                 const user = await context.userService?.me()
-                const messages = await context.messageService!.get(user!.id)
                 const settings = await context.settingService!.get(user!.id)
+                const messages = await context.messageService!.get(user!.id)
                 setUser(user)
-                setMessages(messages)
                 setSetting(settings)
+                setMessages(messages)
             } catch (error) {
                 // TODO: handle errors
             } finally {
                 setIsLoading(false);
             }
-
         };
         getAppData();
     }, [])
@@ -69,17 +67,18 @@ export default function Chat() {
     }, [])
 
     const messageList = messages.map((msg, id) => {
-        if (isMyMessage(currentUser, msg)) {
+        debugger;
+        if (isMyMessage(user!, msg)) {
             return (
                 <ChatRigthMessage
                     key={id}
-                    date={formatDay(msg.createdAt, settings.clockDisplay!)}
+                    date={formatDay(msg.createdAt, setting!.clockDisplay!)}
                     content={msg.content} />)
         }
         return (<ChatLeftMessage
             key={id}
             userName={msg.userName!}
-            date={formatDay(msg.createdAt, settings.clockDisplay!)}
+            date={formatDay(msg.createdAt, setting!.clockDisplay!)}
             content={msg.content} />)
     })
 

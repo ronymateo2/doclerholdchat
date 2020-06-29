@@ -2,8 +2,8 @@ import { ChatMessage } from "../model/chat-message";
 import { LocalStorageRepository } from "./local-storage-repository";
 
 const initialChatMessages: ChatMessage[] = [
-    { userid: 'guest01', userName: 'guest01', content: "asdasdad basadasdasdaada badadadada", createdAt: { hours: 11, minutes: 59 } },
-    { userid: 'guest01', userName: 'guest01', content: "bababaa", createdAt: { hours: 11, minutes: 59 } },
+    { userid: 'guest01', userName: 'guest01', content: "asdasdad basadasdasdaada badadadada", createdAt: { hours: 15, minutes: 59 } },
+    { userid: 'guest01', userName: 'guest01', content: "bababaa", createdAt: { hours: 19, minutes: 59 } },
     { userid: 'rmateo', userName: 'rmateo', content: "bababaa", createdAt: { hours: 11, minutes: 59 } },
     { userid: 'rmateo', userName: 'rmateo', content: "bababaa", createdAt: { hours: 11, minutes: 59 } },
     { userid: 'rmateo', userName: 'rmateo', content: "bababaa", createdAt: { hours: 11, minutes: 59 } }]
