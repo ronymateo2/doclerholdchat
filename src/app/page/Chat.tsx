@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function Chat() {
+
+    const [messages, setMessages] = useState([])
+ 
     return (
         <div className="chat">
             <section className="messages">

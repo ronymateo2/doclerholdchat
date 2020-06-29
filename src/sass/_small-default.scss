@@ -144,7 +144,9 @@ main {
         -webkit-appearance: none; 
 				-moz-appearance: none;
       }
-      input:focus {box-shadow: 1px 1px 4px rgba(0,0,0,0.5)  inset;}
+      input:focus {
+        box-shadow: 1px 1px 4px rgba(0,0,0,0.5)  inset;
+      }
 			input:required {border: 1px solid red;}
       input:required:valid {border-color: $primaryColor;}
     }
