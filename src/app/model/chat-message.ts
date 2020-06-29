@@ -3,7 +3,8 @@ import { ClockDisplay } from "./clock-display";
 
 export interface ChatMessage {
     id?: number //TODO
-    userName: string
+    userid: string
+    userName?: string
     content: string
     // it should formatted by the server but for this exercise we format this value
     createdAt: AppDateTime
@@ -32,5 +33,5 @@ export const formatDay = (dt: AppDateTime, clockDisplay: string | ClockDisplay):
 }
 
 export const isMyMessage = (user: User, m: ChatMessage): boolean => {
-    return user.userName == m.userName
+    return user.id == m.userid
 }

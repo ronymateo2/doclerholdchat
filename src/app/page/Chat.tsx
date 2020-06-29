@@ -1,19 +1,15 @@
 import React, { useState, useEffect, SyntheticEvent } from 'react'
 import { ChatMessage, formatDay, isMyMessage } from '../model/chat-message'
-// import { User } from '../model/user'
 import { defaultSetting } from '../model/setting'
-
-const curentUser = {
-    userName: 'rmateo'
-}
+import { currentUser } from '../model/user';
 
 const settings = defaultSetting;
 const chatMessages: ChatMessage[] = [
-    { userName: 'guest01', content: "bababaa basdada badada", createdAt: { hours: 11, minutes: 59 } },
-    { userName: 'guest01', content: "bababaa", createdAt: { hours: 11, minutes: 59 } },
-    { userName: 'rmateo', content: "bababaa", createdAt: { hours: 11, minutes: 59 } },
-    { userName: 'rmateo', content: "bababaa", createdAt: { hours: 11, minutes: 59 } },
-    { userName: 'rmateo', content: "bababaa", createdAt: { hours: 11, minutes: 59 } }
+    { userid: 'guest01', userName: 'guest01', content: "bababaa basdada badada", createdAt: { hours: 11, minutes: 59 } },
+    { userid: 'guest01', userName: 'guest01', content: "bababaa", createdAt: { hours: 11, minutes: 59 } },
+    { userid: 'rmateo', userName: 'rmateo', content: "bababaa", createdAt: { hours: 11, minutes: 59 } },
+    { userid: 'rmateo', userName: 'rmateo', content: "bababaa", createdAt: { hours: 11, minutes: 59 } },
+    { userid: 'rmateo', userName: 'rmateo', content: "bababaa", createdAt: { hours: 11, minutes: 59 } }
 ]
 
 export default function Chat() {
@@ -22,7 +18,7 @@ export default function Chat() {
 
     const addMessage = () => {
         const currentDate = new Date()
-        const newMsg: ChatMessage = { userName: curentUser.userName, content: msg, createdAt: { hours: currentDate.getHours(), minutes: currentDate.getMinutes() } }
+        const newMsg: ChatMessage = { userid: currentUser.id, userName: currentUser.userName, content: msg, createdAt: { hours: currentDate.getHours(), minutes: currentDate.getMinutes() } }
         setMessages([...messages, newMsg])
         setMsg('')
     }
@@ -55,7 +51,7 @@ export default function Chat() {
             <section className="messages">
                 {
                     messages.map(m => (
-                        <div className={isMyMessage(curentUser, m) ? 'right' : 'left'}>
+                        <div className={isMyMessage(currentUser, m) ? 'right' : 'left'}>
                             <div className="user">
                                 <p>{m.userName},{formatDay(m.createdAt, settings.clockDisplay!)}</p>
                             </div>

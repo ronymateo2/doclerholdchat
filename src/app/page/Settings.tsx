@@ -12,6 +12,7 @@ export default function Settings() {
     const messagesOptions = [{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]
     const languageOptions = languageList.map(l => ({ value: l.code, label: l.name }))
 
+    const [userName, setUserName] = useState(currentUser.userName)
     const [interfaceType, setInterfaceTye] = useState(defaultSetting.inferfaceType)
     const [clockDisplay, setClockDisplay] = useState(defaultSetting.clockDisplay)
     const [sendMessage, setSendMessage] = useState(defaultSetting.ctrlEnter)
@@ -24,11 +25,12 @@ export default function Settings() {
         setClockDisplay(defaultSetting.clockDisplay)
         setSendMessage(defaultSetting.ctrlEnter)
         setLanguage(defaultSetting.language)
+        setUserName(currentUser.userName)
     }
 
     return (
         <form id="settings" onSubmit={handleSubmit} >
-            <Input label="User Name" value={currentUser.userName} readOnly={true}></Input>
+            <Input label="User Name" value={userName} onChange={setUserName} ></Input>
             <Radio label="Interface type" name="interfaceType" value={interfaceType} onChange={setInterfaceTye} options={interfaceTypeOptions}  ></Radio>
             <Radio label="Clock display" name="clockDisplay" value={clockDisplay} onChange={setClockDisplay} options={clockDisplayOptions}  ></Radio>
             <Radio label="Send Message on CRTL + ENTER" name="sendMessage" value={sendMessage} onChange={setSendMessage} options={messagesOptions}  ></Radio>
