@@ -56,6 +56,11 @@ nav{
   }
 }
 
+main{
+  padding: 1rem $gutter;
+
+}
+
 footer {
   width: 100%;
   background-color: $primaryColor;
