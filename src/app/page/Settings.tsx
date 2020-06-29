@@ -1,28 +1,22 @@
 import React from 'react'
+import Input from '../component/Input'
+import Radio from '../component/Radio'
+import Select from '../component/Select'
+import { languageList } from '../model/language'
 
 export default function Settings() {
+    const interfaceTypeOptions = [{ value: 'ligth', label: 'Ligth' }, { value: 'dark', label: 'Dark' }]
+    const clockDisplayOptions = [{ value: '12', label: '12 Hours' }, { value: '24', label: '24 Hours' }]
+    const messagesOptions = [{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]
+    const languageOptions = languageList.map(l => ({ value: l.code, label: l.name }))
+
     return (
         <form id="settings">
-            <label className="top">User Name
-                 <input type="text" name="fname"></input>
-            </label>
-            <h2>Interface type</h2>
-            <label className="sbs radio"><input type="radio" value="ligth" name="infterfaceType" />Ligth</label>
-            <label className="sbs radio"><input type="radio" value="ligth" name="infterfaceType" />Dark</label>
-            <h2>Clock display</h2>
-            <label className="sbs radio"> <input type="radio" value="12" name="clockDisplay" />12 Hours</label>
-            <label className="sbs radio"> <input type="radio" value="24" name="clockDisplay" />24 Hours</label>
-            <h2> Send Message on CRTL + ENTER</h2>
-            <label className="sbs radio"> <input type="radio" value="on" name="sendMessage" />On</label>
-            <label className="sbs radio"> <input type="radio" value="off" name="sendMessage" />Off</label>
-            <label className="top">
-                Language
-                    <select>
-                    <option value=""> Please Select &#9662;</option>
-                    <option value="EN">EN</option>
-                    <option value="ES">ES</option>
-                </select>
-            </label>
+            <Input label="User Name"></Input>
+            <Radio label="Interface type" name="interfaceType" options={interfaceTypeOptions}  ></Radio>
+            <Radio label="Clock display" name="clockDisplay" options={clockDisplayOptions}  ></Radio>
+            <Radio label="Send Message on CRTL + ENTER" name="sendMessage" options={messagesOptions}  ></Radio>
+            <Select label="Language" value='sq' options={languageOptions}></Select>
             <input className="submitBtn" type="submit" value="Reset to Defaults"></input>
         </form>
     )

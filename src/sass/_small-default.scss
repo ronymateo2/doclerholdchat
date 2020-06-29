@@ -96,10 +96,12 @@ main {
     }
 
     form#chat {
+      display: flex;
+      align-items: center;
       input {
         color: $fontColor;
         padding: 0.75rem 1em;
-        margin-top: 0.1rem;
+        margin-top: 0.75rem;
         border: none;
         border-radius: 5px;
         background-color: scale-color($secondaryColor, $lightness: 50%);
