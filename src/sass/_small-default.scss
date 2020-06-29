@@ -127,7 +127,6 @@ main {
   }
 
   form#settings{
-    margin: 1rem $gutter;
     // max-width: 25rem;
     label.top{
       font-size: $defaultFont;
@@ -170,6 +169,7 @@ main {
       -moz-appearance: none; /*remove the Firefox mobile default styling*/
       border: none;
       background-color: $primaryColor;
+      font-size: $defaultFontSize;
       color:$secondaryColor;
       font-weight: $normalWeight;
       border-radius: 1em;
