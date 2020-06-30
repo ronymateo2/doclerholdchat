@@ -137,7 +137,7 @@ main {
         background-color: scale-color($secondaryColor, $lightness: 50%);
         -webkit-appearance: none;
         -moz-appearance: none;
-        width: calc(100% - 44px);
+        width: calc(100% - 80px);
       }
       input::placeholder {
         font-size: $captionFontSize;
@@ -151,9 +151,10 @@ main {
         border: none;
         color: $primaryColor;
         background-color: transparent;
-        height: 40px;
-        width: 40px;
         margin: auto;
+        i.fas.fa-paper-plane{
+          padding: 0.75rem 1em;
+        }
       }
     }
   }
@@ -213,6 +214,7 @@ main {
       border-radius: 1em;
       padding: 0.5rem 0.75rem;
       width: 100%;
+      cursor: pointer;
     }
   }
 }

@@ -71,6 +71,8 @@ export default function Settings() {
         setSendMessage(settings.ctrlEnter)
         setLanguage(settings.language)
         setUserName(settings.userName)
+        updateTheme!(settings.inferfaceType)
+
     }
 
     const onChangeUserName = async (val: string) => {

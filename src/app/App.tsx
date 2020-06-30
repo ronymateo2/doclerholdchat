@@ -23,11 +23,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       const user = await userService!.me()
       const settings = await settingService!.get(user.id)
       updateTheme!(settings.inferfaceType)
-
-
     })()
-
-
   }, [])
 
   return (

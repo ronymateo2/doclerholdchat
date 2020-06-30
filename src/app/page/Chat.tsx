@@ -51,16 +51,15 @@ export default function Chat() {
         getAppData();
     }, [user])
 
-
     useEffect(() => {
         const keydownHandler = (e: KeyboardEvent) => {
-            if (e.keyCode === 13 && e.ctrlKey) {
+            if (setting!.ctrlEnter == 'on' && e.keyCode === 13 && e.ctrlKey) {
                 addMessage()
             }
         }
-        window.addEventListener('keydown', keydownHandler, true)
+        window.addEventListener('keydown', keydownHandler)
         return () => {
-            window.removeEventListener('keydown', keydownHandler, true)
+            window.removeEventListener('keydown', keydownHandler)
         }
     })
 
@@ -87,7 +86,7 @@ export default function Chat() {
                 </section>
                 <form id="chat" onSubmit={handleSubmit}>
                     <input placeholder="Enter Message..." type="text" value={msg} onChange={onChangeHandler} ></input>
-                    <button className="button" type="button" onClick={addMessage} >
+                    <button className="button" type="button" onClick={addMessage} disabled={true} >
                         <i className="fas fa-paper-plane fa-2x"></i>
                     </button>
                 </form>
