@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/doclerholdchat/static/css/main.3ae883ae.chunk.css",
-    "main.js": "/doclerholdchat/static/js/main.9f89488f.chunk.js",
-    "main.js.map": "/doclerholdchat/static/js/main.9f89488f.chunk.js.map",
+    "main.js": "/doclerholdchat/static/js/main.df888683.chunk.js",
+    "main.js.map": "/doclerholdchat/static/js/main.df888683.chunk.js.map",
     "runtime-main.js": "/doclerholdchat/static/js/runtime-main.de8c3eba.js",
     "runtime-main.js.map": "/doclerholdchat/static/js/runtime-main.de8c3eba.js.map",
     "static/js/2.1060044c.chunk.js": "/doclerholdchat/static/js/2.1060044c.chunk.js",
     "static/js/2.1060044c.chunk.js.map": "/doclerholdchat/static/js/2.1060044c.chunk.js.map",
     "index.html": "/doclerholdchat/index.html",
-    "precache-manifest.1d0699f9d479aea9022bed0d4db22c98.js": "/doclerholdchat/precache-manifest.1d0699f9d479aea9022bed0d4db22c98.js",
+    "precache-manifest.b4d207e15dee991fbb317b348d629d7b.js": "/doclerholdchat/precache-manifest.b4d207e15dee991fbb317b348d629d7b.js",
     "service-worker.js": "/doclerholdchat/service-worker.js",
     "static/css/main.3ae883ae.chunk.css.map": "/doclerholdchat/static/css/main.3ae883ae.chunk.css.map",
     "static/js/2.1060044c.chunk.js.LICENSE.txt": "/doclerholdchat/static/js/2.1060044c.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.de8c3eba.js",
     "static/js/2.1060044c.chunk.js",
     "static/css/main.3ae883ae.chunk.css",
-    "static/js/main.9f89488f.chunk.js"
+    "static/js/main.df888683.chunk.js"
   ]
 }
