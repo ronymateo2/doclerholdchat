@@ -6,6 +6,9 @@ import { languageList } from '../model/language'
 import { Setting } from '../model/setting'
 import { ServiceContext } from '../context/ServiceContext'
 import { User } from '../model/user'
+import { ThemeContext } from '../context/ThemeContext'
+import { InterfaceType } from '../model/interface-type'
+import { ClockDisplay } from '../model/clock-display'
 const callAll = (...fns: Function[]) => (arg: string) => fns.forEach((fn: Function) => fn && fn(arg))
 
 export default function Settings() {
@@ -14,7 +17,8 @@ export default function Settings() {
     const messagesOptions = [{ value: 'on', label: 'On' }, { value: 'off', label: 'Off' }]
     const languageOptions = languageList.map(l => ({ value: l.code, label: l.name }))
 
-    const context = useContext(ServiceContext)
+    const svrContext = useContext(ServiceContext)
+    const { updateTheme } = useContext(ThemeContext)
 
     const [isLoading, setIsLoading] = useState(false);
     const [user, setUser] = useState<User>()
@@ -30,8 +34,8 @@ export default function Settings() {
         const getSettingData = async () => {
             setIsLoading(true);
             try {
-                const user = await context.userService?.me()
-                const settings = await context.settingService!.get(user!.id)
+                const user = await svrContext.userService?.me()
+                const settings = await svrContext.settingService!.get(user!.id)
                 setUser(user)
                 setSetting(settings)
 
@@ -54,13 +58,13 @@ export default function Settings() {
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
-        const defaultSetting = await context.settingService!.getDefault()
+        const defaultSetting = await svrContext.settingService!.getDefault()
         await updateSettings(defaultSetting)
     }
 
     async function updateSettings(setting: Setting) {
-        await context.settingService!.update(setting)
-        const settings = await context.settingService!.get(user!.id)
+        await svrContext.settingService!.update(setting)
+        const settings = await svrContext.settingService!.get(user!.id)
         setSetting(settings)
         setInterfaceType(settings.inferfaceType)
         setClockDisplay(settings.clockDisplay)
@@ -75,12 +79,13 @@ export default function Settings() {
     }
     const onChangeInterfaceType = async (val: string) => {
         setInterfaceType(val)
-        await updateSettings({ ...setting!, inferfaceType: val })
+        updateTheme!(val as InterfaceType)
+        await updateSettings({ ...setting!, inferfaceType: val as InterfaceType})
 
     }
     const onChangeClockDisplay = async (val: string) => {
         setClockDisplay(val)
-        await updateSettings({ ...setting!, clockDisplay: val })
+        await updateSettings({ ...setting!, clockDisplay: val as ClockDisplay})
     }
 
     const onChangeSendMessage = async (val: string) => {

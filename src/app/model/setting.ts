@@ -3,8 +3,8 @@ import { InterfaceType } from "./interface-type";
 
 export interface Setting {
     userName: string,
-    inferfaceType: string | InterfaceType;
-    clockDisplay: string | ClockDisplay;
+    inferfaceType: InterfaceType;
+    clockDisplay: ClockDisplay;
     ctrlEnter: string | 'on' | 'off';
     language: string;
 }

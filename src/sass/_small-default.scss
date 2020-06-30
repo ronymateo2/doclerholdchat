@@ -1,6 +1,7 @@
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
+  height: 100%;
 }
 
 /*  apply a natural box layout model to all elements  */
@@ -14,6 +15,7 @@ body {
   font-family: $defaultFont;
   font-size: $defaultFontSize;
   font-weight: $normalWeight;
+  height: 100vh;
 }
 
 header {
@@ -27,6 +29,26 @@ header {
   h2 {
     font-size: $defaultFontSize;
     font-weight: $normalWeight;
+  }
+}
+
+div#wrapper {
+  height: 100%;
+  // use for dark theme just to test
+  &.theme--dark {
+    background-color: $themeDarkColor;
+    main {
+      background-color: $themeDarkColor;
+      color: $themeDarkFontColor;
+
+      .chat {
+        .messages {
+          .right {
+            color: $fontColor;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -58,23 +80,23 @@ nav {
 
 main {
   padding: 1rem $gutter;
-
   /* Chat */
   .chat {
     margin: 1rem $gutter;
     .messages {
       display: flex;
       flex-direction: column;
-      .user {
-        p {
-          color: darken($secondaryColor, 30%);
-          padding: 0.1rem 0;
-          font-size: $secondaryFontSize;
-        }
-      }
+
       .left {
         padding: 0.2rem;
         align-self: flex-start;
+        .user {
+          p {
+            color: darken($secondaryColor, 30%);
+            padding: 0.1rem 0;
+            font-size: $secondaryFontSize;
+          }
+        }
         .content {
           padding: 0.5rem;
           border: 1px solid darken($secondaryColor, 20%);
@@ -85,6 +107,14 @@ main {
       .right {
         padding: 0.2rem;
         align-self: flex-end;
+        .user {
+          text-align: end;
+          p {
+            color: darken($secondaryColor, 30%);
+            padding: 0.1rem 0;
+            font-size: $secondaryFontSize;
+          }
+        }
         .content {
           background-color: $secondaryColor;
           padding: 0.5rem;
@@ -98,10 +128,10 @@ main {
     form#chat {
       display: flex;
       align-items: center;
+      margin-top: 1rem;
       input {
         color: $fontColor;
         padding: 0.75rem 1em;
-        margin-top: 0.75rem;
         border: none;
         border-radius: 5px;
         background-color: scale-color($secondaryColor, $lightness: 50%);
@@ -109,9 +139,8 @@ main {
         -moz-appearance: none;
         width: calc(100% - 44px);
       }
-      input::placeholder{
+      input::placeholder {
         font-size: $captionFontSize;
-        
       }
       input:focus {
         outline: none;
@@ -120,6 +149,7 @@ main {
       .button {
         cursor: pointer;
         border: none;
+        color: $primaryColor;
         background-color: transparent;
         height: 40px;
         width: 40px;
@@ -128,45 +158,49 @@ main {
     }
   }
 
-  form#settings{
+  form#settings {
     // max-width: 25rem;
-    label.top{
+    label.top {
       font-size: $defaultFont;
       display: block;
-      padding: .75em 0;
-      input, select{
+      padding: 0.75em 0;
+      input,
+      select {
         width: 100%;
         font-size: $defaultFont;
         color: $fontColor;
-        padding: .75rem 1em;
+        padding: 0.75rem 1em;
         margin-top: 0.75rem;
         border: none;
         border-radius: 5px;
         background-color: scale-color($secondaryColor, $lightness: 50%);
-        -webkit-appearance: none; 
-				-moz-appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
       }
       input:focus {
-        box-shadow: 1px 1px 4px rgba(0,0,0,0.5)  inset;
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5) inset;
       }
-			input:required {border: 1px solid red;}
-      input:required:valid {border-color: $primaryColor;}
+      input:required {
+        border: 1px solid red;
+      }
+      input:required:valid {
+        border-color: $primaryColor;
+      }
     }
 
-    h2{
+    h2 {
       font-size: $defaultFont;
       display: block;
-      padding: .75em 0;
+      padding: 0.75em 0;
       font-weight: $normalWeight;
     }
 
-    label.sbs.radio{
+    label.sbs.radio {
       display: flex;
       align-items: center;
       font-size: $secondaryFontSize;
-      padding: .75em 0;
+      padding: 0.75em 0;
     }
-  
 
     input.submitBtn {
       -webkit-appearance: none; /*remove the Safari mobile default styling*/
@@ -174,10 +208,10 @@ main {
       border: none;
       background-color: $primaryColor;
       font-size: $defaultFontSize;
-      color:$secondaryColor;
+      color: $secondaryColor;
       font-weight: $normalWeight;
       border-radius: 1em;
-      padding: 0.5rem .75rem;
+      padding: 0.5rem 0.75rem;
       width: 100%;
     }
   }

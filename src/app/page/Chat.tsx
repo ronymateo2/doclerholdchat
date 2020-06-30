@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useCallback } from 'react'
 import { ChatMessage, formatDay, isMyMessage } from '../model/chat-message'
 import { Setting } from '../model/setting'
 import { User } from '../model/user';
@@ -22,13 +22,6 @@ export default function Chat() {
         setMsg('')
     }
 
-    function keydownHandler(e: KeyboardEvent) {
-        if (e.keyCode === 13 && e.ctrlKey) {
-            addMessage()
-            setMsg('')
-        }
-    }
-
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setMsg(e.target.value);
     }
@@ -43,7 +36,7 @@ export default function Chat() {
         const getAppData = async () => {
             setIsLoading(true);
             try {
-                const user = await context.userService?.me()
+                const user = await context.userService!.me()
                 const settings = await context.settingService!.get(user!.id)
                 const messages = await context.messageService!.get(user!.id)
                 setUser(user)
@@ -56,18 +49,22 @@ export default function Chat() {
             }
         };
         getAppData();
-    }, [])
+    }, [user])
 
 
     useEffect(() => {
-        document.addEventListener('keydown', keydownHandler)
-        return () => {
-            document.removeEventListener('keydown', keydownHandler)
+        const keydownHandler = (e: KeyboardEvent) => {
+            if (e.keyCode === 13 && e.ctrlKey) {
+                addMessage()
+            }
         }
-    }, [])
+        window.addEventListener('keydown', keydownHandler, true)
+        return () => {
+            window.removeEventListener('keydown', keydownHandler, true)
+        }
+    })
 
     const messageList = messages.map((msg, id) => {
-        debugger;
         if (isMyMessage(user!, msg)) {
             return (
                 <ChatRigthMessage
