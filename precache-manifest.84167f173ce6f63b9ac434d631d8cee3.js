@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3d5ec1feefb2f7ae3697c69bf975f663",
+    "revision": "81ef8ecc1b916de035c2b1bb03bf890e",
     "url": "/doclerholdchat/index.html"
   },
   {
-    "revision": "96108da6ecd3f662f486",
+    "revision": "ce35cb07006e51ca35dc",
     "url": "/doclerholdchat/static/css/main.3ae883ae.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/doclerholdchat/static/js/2.1060044c.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "96108da6ecd3f662f486",
-    "url": "/doclerholdchat/static/js/main.ea817590.chunk.js"
+    "revision": "ce35cb07006e51ca35dc",
+    "url": "/doclerholdchat/static/js/main.8a815677.chunk.js"
   },
   {
     "revision": "c91317b51eb2761a9a0e",

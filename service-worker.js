@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/doclerholdchat/precache-manifest.879a1a2624376e104af338fb2b9dc3e5.js"
+  "/doclerholdchat/precache-manifest.84167f173ce6f63b9ac434d631d8cee3.js"
 );
 
 self.addEventListener('message', (event) => {
