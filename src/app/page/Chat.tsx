@@ -1,11 +1,9 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react'
-import { ChatMessage, formatDay, isMyMessage } from '../model/chat-message'
+import React, { useState, useEffect, useContext, } from 'react'
+import { ChatMessage, } from '../model/chat-message'
 import { Setting } from '../model/setting'
 import { User } from '../model/user';
-import ChatRigthMessage from '../component/ChatRigthMessage';
-import ChatLeftMessage from '../component/ChatLeftMessage';
 import { ServiceContext } from '../context/ServiceContext';
-
+import ChatMessageList from '../component/ChatMessageList';
 
 export default function Chat() {
     const context = useContext(ServiceContext)
@@ -63,35 +61,18 @@ export default function Chat() {
         }
     })
 
-    const messageList = messages.map((msg, id) => {
-        if (isMyMessage(user!, msg)) {
-            return (
-                <ChatRigthMessage
-                    key={id}
-                    date={formatDay(msg.createdAt, setting!.clockDisplay!)}
-                    content={msg.content} />)
-        }
-        return (<ChatLeftMessage
-            key={id}
-            userName={msg.userName!}
-            date={formatDay(msg.createdAt, setting!.clockDisplay!)}
-            content={msg.content} />)
-    })
-
     return (
-        <div className="chat"> {
-            !isLoading && <>
-                <section className="messages">
-                    {messageList}
-                </section>
+        <>{
+            !isLoading && <div className="chat">
+                <ChatMessageList messages={messages} user={user!} setting={setting!}></ChatMessageList>
                 <form id="chat" onSubmit={handleSubmit}>
                     <input placeholder="Enter Message..." type="text" value={msg} onChange={onChangeHandler} ></input>
                     <button className="button" type="button" onClick={addMessage} disabled={true} >
                         <i className="fas fa-paper-plane fa-2x"></i>
                     </button>
                 </form>
-            </>
+            </div>
         }
-        </div>
+        </>
     )
 }
