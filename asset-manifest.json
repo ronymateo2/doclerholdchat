@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/doclerholdchat/static/css/main.3ae883ae.chunk.css",
+    "main.js": "/doclerholdchat/static/js/main.ea817590.chunk.js",
+    "main.js.map": "/doclerholdchat/static/js/main.ea817590.chunk.js.map",
+    "runtime-main.js": "/doclerholdchat/static/js/runtime-main.de8c3eba.js",
+    "runtime-main.js.map": "/doclerholdchat/static/js/runtime-main.de8c3eba.js.map",
+    "static/js/2.1060044c.chunk.js": "/doclerholdchat/static/js/2.1060044c.chunk.js",
+    "static/js/2.1060044c.chunk.js.map": "/doclerholdchat/static/js/2.1060044c.chunk.js.map",
+    "index.html": "/doclerholdchat/index.html",
+    "precache-manifest.879a1a2624376e104af338fb2b9dc3e5.js": "/doclerholdchat/precache-manifest.879a1a2624376e104af338fb2b9dc3e5.js",
+    "service-worker.js": "/doclerholdchat/service-worker.js",
+    "static/css/main.3ae883ae.chunk.css.map": "/doclerholdchat/static/css/main.3ae883ae.chunk.css.map",
+    "static/js/2.1060044c.chunk.js.LICENSE.txt": "/doclerholdchat/static/js/2.1060044c.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.de8c3eba.js",
+    "static/js/2.1060044c.chunk.js",
+    "static/css/main.3ae883ae.chunk.css",
+    "static/js/main.ea817590.chunk.js"
+  ]
+}
