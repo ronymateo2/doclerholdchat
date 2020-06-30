@@ -15,7 +15,7 @@ body {
   font-family: $defaultFont;
   font-size: $defaultFontSize;
   font-weight: $normalWeight;
-  height: 100vh;
+  height: 100%;
 }
 
 header {
@@ -32,6 +32,10 @@ header {
   }
 }
 
+div#root{
+  height: 100%;
+}
+/*-- DARK THEME (workaround) -*/
 div#wrapper {
   height: 100%;
   // use for dark theme just to test
@@ -80,9 +84,9 @@ nav {
 
 main {
   padding: 1rem $gutter;
-  /* Chat */
+   /* Chat */
   .chat {
-    margin: 1rem $gutter;
+    padding: 1rem $gutter;
     .messages {
       display: flex;
       flex-direction: column;
@@ -128,7 +132,7 @@ main {
     form#chat {
       display: flex;
       align-items: center;
-      margin-top: 1rem;
+      padding-top: 1rem;
       input {
         color: $fontColor;
         padding: 0.75rem 1em;
@@ -151,6 +155,7 @@ main {
         border: none;
         color: $primaryColor;
         background-color: transparent;
+        outline:none;
         margin: auto;
         i.fas.fa-paper-plane{
           padding: 0.75rem 1em;
@@ -214,6 +219,7 @@ main {
       border-radius: 1em;
       padding: 0.5rem 0.75rem;
       width: 100%;
+      outline:none;
       cursor: pointer;
     }
   }

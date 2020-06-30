@@ -14,17 +14,19 @@ export default function Chat() {
     const [msg, setMsg] = useState('')
 
     const addMessage = () => {
-        const currentDate = new Date()
-        const newMsg: ChatMessage = { userid: user!.id, userName: setting!.userName, content: msg, createdAt: { hours: currentDate.getHours(), minutes: currentDate.getMinutes() } }
-        setMessages([...messages, newMsg])
-        setMsg('')
+        if (msg) {
+            const currentDate = new Date()
+            const newMsg: ChatMessage = { userid: user!.id, userName: setting!.userName, content: msg, createdAt: { hours: currentDate.getHours(), minutes: currentDate.getMinutes() } }
+            setMessages([...messages, newMsg])
+            setMsg('')
+        }
     }
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         setMsg(e.target.value);
     }
 
-    function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         addMessage();
         setMsg('');
@@ -67,7 +69,7 @@ export default function Chat() {
                 <ChatMessageList messages={messages} user={user!} setting={setting!}></ChatMessageList>
                 <form id="chat" onSubmit={handleSubmit}>
                     <input placeholder="Enter Message..." type="text" value={msg} onChange={onChangeHandler} ></input>
-                    <button className="button" type="button" onClick={addMessage} disabled={true} >
+                    <button className="button" type="button" onClick={addMessage} >
                         <i className="fas fa-paper-plane fa-2x"></i>
                     </button>
                 </form>
