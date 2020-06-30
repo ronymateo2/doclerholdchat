@@ -42,7 +42,7 @@ function App() {
   return (
     <ServiceContext.Provider value={provider}>
       <ThemeProvider startingTheme={InterfaceType.Ligth}>
-        <Router>
+        <Router basename='/'>
           <Layout>
             <Header />
             <Navigation></Navigation>
