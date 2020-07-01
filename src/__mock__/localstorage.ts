@@ -1,4 +1,4 @@
-class LocalStorageMock {
+class LocalStorageFake {
     store: any = {}
     getItem(key: string) {
         return this.store[key];
@@ -15,4 +15,4 @@ class LocalStorageMock {
     }
 }
 
-export default LocalStorageMock
+export default LocalStorageFake

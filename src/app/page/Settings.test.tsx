@@ -10,7 +10,7 @@ import { userServiceImp } from '../service/user-service'
 import { currentUser } from '../model/user'
 import { ThemeProvider } from '../context/ThemeContext'
 import { InterfaceType } from '../model/interface-type'
-import LocalStorageMock from '../../__mock__/localstorage'
+import LocalStorageFake from '../../__mock__/localstorage'
 import { unmountComponentAtNode, render } from 'react-dom'
 
 let container: HTMLDivElement;
@@ -27,7 +27,7 @@ describe('Settings', () => {
     });
 
     it('should render', async () => {
-        const storage = new LocalStorageMock()
+        const storage = new LocalStorageFake()
         const provider: Partial<ServiceContextProps> = {
             messageService: messageServiceImp(storage, initialChatMessages),
             settingService: settingServiceImp(storage, defaultSetting),
