@@ -1,9 +1,11 @@
-import { User, currentUser } from "../model/user";
+import { User } from "../model/user";
 
-export const userServiceImp: UserService = {
-    async me(): Promise<User> {
-        return Promise.resolve(currentUser) 
-    }
+export const userServiceImp = (current: User): UserService => {
+    return ({
+        async me(): Promise<User> {
+            return Promise.resolve(current)
+        }
+    })
 }
 
 export interface UserService {

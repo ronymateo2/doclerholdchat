@@ -1,7 +1,7 @@
 import { LocalStorageRepository } from "./local-storage-repository";
-import { defaultSetting, Setting } from "../model/setting";
+import { Setting } from "../model/setting";
 
-export const settingServiceImp = (repository: LocalStorageRepository): SettingService => {
+export const settingServiceImp = (repository: LocalStorageRepository, defaultSetting: Setting): SettingService => {
     return ({
         async update(request: Setting): Promise<void> {
             return repository.setItem('user-settings', JSON.stringify(request))

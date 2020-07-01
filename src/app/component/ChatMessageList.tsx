@@ -1,7 +1,7 @@
 import React from "react"
 import ChatRigthMessage from "./ChatRigthMessage"
 import ChatLeftMessage from "./ChatLeftMessage"
-import { ChatMessage, isMyMessage, formatDay } from "../model/chat-message"
+import { ChatMessage, isMyMessage, formatTime } from "../model/chat-message"
 import { User } from "../model/user"
 import { Setting } from "../model/setting"
 
@@ -17,13 +17,13 @@ const ChatMessageList = ({ messages, user, setting }: MessageListProp) => {
             return (
                 <ChatRigthMessage
                     key={id}
-                    date={formatDay(msg.createdAt, setting!.clockDisplay!)}
+                    date={formatTime(msg.createdAt, setting!.clockDisplay!)}
                     content={msg.content} />)
         }
         return (<ChatLeftMessage
             key={id}
             userName={msg.userName!}
-            date={formatDay(msg.createdAt, setting!.clockDisplay!)}
+            date={formatTime(msg.createdAt, setting!.clockDisplay!)}
             content={msg.content} />)
     })
 

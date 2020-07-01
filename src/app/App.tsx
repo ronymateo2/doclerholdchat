@@ -12,6 +12,9 @@ import { messageServiceImp } from './service/message-service';
 import { userServiceImp } from './service/user-service';
 import { ThemeProvider, ThemeContext } from './context/ThemeContext';
 import { InterfaceType } from './model/interface-type';
+import { initialChatMessages } from './model/chat-message';
+import { defaultSetting } from './model/setting';
+import { currentUser } from './model/user';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { userService, settingService } = useContext(ServiceContext)
@@ -34,9 +37,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 
 function App() {
   const provider: Partial<ServiceContextProps> = {
-    messageService: messageServiceImp(localStorage),
-    settingService: settingServiceImp(localStorage),
-    userService: userServiceImp
+    messageService: messageServiceImp(localStorage, initialChatMessages),
+    settingService: settingServiceImp(localStorage, defaultSetting),
+    userService: userServiceImp(currentUser)
   }
 
   return (
