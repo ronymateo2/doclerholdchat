@@ -9,7 +9,6 @@ import { User } from '../model/user'
 import { ThemeContext } from '../context/ThemeContext'
 import { InterfaceType } from '../model/interface-type'
 import { ClockDisplay } from '../model/clock-display'
-const callAll = (...fns: Function[]) => (arg: string) => fns.forEach((fn: Function) => fn && fn(arg))
 
 export default function Settings() {
     const interfaceTypeOptions = [{ value: 'ligth', label: 'Ligth' }, { value: 'dark', label: 'Dark' }]
@@ -72,7 +71,6 @@ export default function Settings() {
         setLanguage(settings.language)
         setUserName(settings.userName)
         updateTheme!(settings.inferfaceType)
-
     }
 
     const onChangeUserName = async (val: string) => {
@@ -99,17 +97,17 @@ export default function Settings() {
         setLanguage(val)
         await updateSettings({ ...setting!, language: val })
     }
-
     return (
         <>
             {!isLoading && <form id="settings" onSubmit={handleSubmit} >
-                <Input label="User Name" value={userName} onChange={onChangeUserName} ></Input>
-                <Radio label="Interface type" name="interfaceType" value={interfaceType} onChange={onChangeInterfaceType} options={interfaceTypeOptions}  ></Radio>
-                <Radio label="Clock display" name="clockDisplay" value={clockDisplay} onChange={onChangeClockDisplay} options={clockDisplayOptions}  ></Radio>
-                <Radio label="Send Message on CRTL + ENTER" name="sendMessage" value={sendMessage} onChange={onChangeSendMessage} options={messagesOptions}  ></Radio>
-                <Select label="Language" value={language} onChange={onChangeLanguge} options={languageOptions}></Select>
+                <Input label="User Name" testId="username" value={userName} onChange={onChangeUserName} ></Input>
+                <Radio label="Interface type" testId="interfaceType" name="interfaceType" value={interfaceType} onChange={onChangeInterfaceType} options={interfaceTypeOptions}  ></Radio>
+                <Radio label="Clock display" testId="clockDisplay" name="clockDisplay" value={clockDisplay} onChange={onChangeClockDisplay} options={clockDisplayOptions}  ></Radio>
+                <Radio label="Send Message on CRTL + ENTER" testId="sendMessage" name="sendMessage" value={sendMessage} onChange={onChangeSendMessage} options={messagesOptions}  ></Radio>
+                <Select label="Language" testId="language" value={language} onChange={onChangeLanguge} options={languageOptions}></Select>
                 <input className="submitBtn" type="submit" value="Reset to Defaults"></input>
             </form>}
         </>
     )
 }
+
